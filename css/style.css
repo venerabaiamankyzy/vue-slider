@@ -1,9 +1,11 @@
-.item {
+/* .item {
   display: none;
-}
+} */
 
-.active {
-  display: block;
+.thumb .active {
+  opacity: 1;
+  border: 3px solid whitesmoke;
+  margin: 1px;
 }
 .slider {
   position: relative;
@@ -57,7 +59,7 @@
 
 .thumb {
   height: calc(80% / 4);
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .thumb img {
@@ -71,10 +73,8 @@
   z-index: 100;
 }
 
-.thumb.no-shadow {
-  opacity: 1;
-  border: 3px solid whitesmoke;
-  margin: 1px;
+.no-shadow {
+  opacity: 0.5;
 }
 
 .slider-container {
@@ -83,12 +83,12 @@
 
 .text,
 .title {
-  color: white;
+  color: whitesmoke;
   margin-left: 20px;
 }
 
 .text {
-  color: white;
+  color: whitesmoke;
   position: absolute;
   bottom: 25%;
   padding-right: 150px;

@@ -28,113 +28,48 @@
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="./css/style.css" />
 
+    <!-- Vue JS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     <!-- MAIN JS -->
     <script type="text/javascript" src="./js/main.js" defer></script>
   </head>
 
   <body>
-    <div class="container">
-      <div class="slider-container">
+    <div id="app">
+      <div class="container slider-container">
         <!-- slider -->
         <div id="slider" class="items">
-          <figure class="item active">
-            <img class="image" src="../img/01.webp" alt="poto" />
-            <figcaption>
-              <h2 class="title">Marvel's Spiderman Miles Morale</h2>
-              <p class="text">
-                Experience the rise of Miles Morales as the new hero masters
-                incredible, explosive new powers to become his own Spider-Man.
-              </p>
-            </figcaption>
-          </figure>
-          <figure class="item">
-            <img class="image" src="../img/02.webp" alt="poto" />
-            <figcaption>
-              <h2 class="title">Ratchet &amp; Clank: Rift Apart</h2>
-              <p class="text">
-                Go dimension-hopping with Ratchet and Clank as they take on an
-                evil emperor from another reality.
-              </p>
-            </figcaption>
-          </figure>
-          <figure class="item">
-            <img class="image" src="../img/03.webp" alt="poto" />
-            <figcaption>
-              <h2 class="title">Fortnite</h2>
-              <p class="text">
-                Grab all of your friends and drop into Epic Games Fortnite, a
-                massive 100 - player face - off that combines looting, crafting,
-                shootouts and chaos.
-              </p>
-            </figcaption>
-          </figure>
-          <figure class="item">
-            <img class="image" src="../img/04.webp" alt="poto" />
-            <figcaption>
-              <h2 class="title">Stray</h2>
-              <p class="text">
-                Lost, injured and alone, a stray cat must untangle an ancient
-                mystery to escape a long-forgotten city
-              </p>
-            </figcaption>
-          </figure>
-          <figure class="item">
-            <img class="image" src="../img/05.webp" alt="poto" />
-            <figcaption>
-              <h2 class="title">Marvel's Avengers</h2>
-              <p class="text">
-                Marvel's Avengers is an epic, third-person, action-adventure
-                game that combines an original, cinematic story with
-                single-player and co-operative gameplay.
-              </p>
-            </figcaption>
-          </figure>
-        </div>
+          <!-- main image -->
+          <div class="item">
+            <img :src="movie.images[movie.activeImage]" alt="poster" class=/>
 
-        <!--Thumbnails -->
-        <div class="thumbnails">
-          <div class="thumb no-shadow">
-            <img
-              src="../img/01.webp"
-              class="immaginiThumb shadow"
-              alt="photo"
-            />
+            <!-- Title & text -->
+            <div>
+              <h2 class="title">{{movie.title[movie.activeTitle]}}</h2>
+              <p class="text">{{movie.text[movie.activeText]}}</p>
+            </div>
           </div>
-          <div class="thumb">
-            <img
-              src="../img/02.webp"
-              class="immaginiThumb shadow"
-              alt="photo"
-            />
-          </div>
-          <div class="thumb">
-            <img
-              src="../img/03.webp"
-              class="immaginiThumb shadow"
-              alt="photo"
-            />
-          </div>
-          <div class="thumb">
-            <img
-              src="../img/04.webp"
-              class="immaginiThumb shadow"
-              alt="photo"
-            />
-          </div>
-          <div class="thumb">
-            <img
-              src="../img/05.webp"
-              class="immaginiThumb shadow"
-              alt="photo"
-            />
+
+          <!--Thumbnails images -->
+          <div class="thumbnails">
+            <div class="thumb">
+              <img
+                :src="image"
+                v-for="(image, imageIndex) in movie.images"
+                class="no-shadow"
+                alt="photo"
+                :class="(imageIndex == movie.activeImage) ? 'active' : '' "
+              />
+            </div>
           </div>
         </div>
 
         <!-- Arrow prev & next -->
-        <div class="prev arrow-left">
+        <div class="prev arrow-left" @click="prevImage()">
           <i class="fa-solid fa-angle-up"></i>
         </div>
-        <div class="next arrow-right">
+        <div class="next arrow-right" @click="nextImage()">
           <i class="fa-solid fa-angle-down"></i>
         </div>
       </div>
