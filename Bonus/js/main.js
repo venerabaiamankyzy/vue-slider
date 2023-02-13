@@ -21,11 +21,11 @@ createApp({
         ],
 
         images: [
-          "../img/01.webp",
-          "../img/02.webp",
-          "../img/03.webp",
-          "../img/04.webp",
-          "../img/05.webp",
+          "../Bonus/img/01.webp",
+          "../Bonus/img/02.webp",
+          "../Bonus/img/03.webp",
+          "../Bonus/img/04.webp",
+          "../Bonus/img/05.webp",
         ],
 
         activeImage: 0,
@@ -85,6 +85,6 @@ createApp({
   created() {
     setInterval(() => {
       this.nextImage();
-    }, 3000);
+    }, 1000);
   },
 }).mount("#app");
